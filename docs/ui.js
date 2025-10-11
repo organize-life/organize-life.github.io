@@ -64,11 +64,15 @@ function renderReport() {
 }
 
 function renderAuditLog() {
+  const auditLog = window.state.days[app_state.current_day]?.auditLog  ||  [];
+  if(auditLog.length === 0)
+    return;
+
   const report = document.getElementById('auditLog');
   report.innerHTML = `\
     <h2>Audit log:</h2>
   `;
-  for(const item of (window.state.days[app_state.current_day]?.auditLog || [])) {
+  for(const item of auditLog) {
     const div = document.createElement('div');
     div.innerText = JSON.stringify(item);
     report.appendChild(div);
