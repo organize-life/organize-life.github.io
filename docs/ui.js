@@ -4,8 +4,8 @@ function render() {
     <div class="app">
       <header>
         <button id="prevDay">&lt;&lt;</button>
-        <h1>${app_state.current_day}</h1>
         <button id="nextDay">&gt;&gt;</button>
+        <h1>${app_state.current_day}</h1>
       </header>
       <main>
         <div class="input-group"></div>
