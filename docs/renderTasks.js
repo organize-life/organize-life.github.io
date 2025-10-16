@@ -12,7 +12,7 @@ function renderTasks() {
     if(dayData.originalPlan !== undefined) {
       const originalSection = document.createElement('div');
       const original_ul = document.createElement('ul');
-      originalSection.innerHTML = '<strong>Original Plan</strong>';
+      originalSection.innerHTML = '<strong>Original plan for '+current_day+'</strong>';
       originalSection.appendChild(original_ul);
       taskList.appendChild(originalSection);
       dayData.originalPlan.forEach(task => {
