@@ -1,7 +1,8 @@
 function render() {
   const app = document.body;
-  app.innerHTML = `
+  app.innerHTML = `\
     <div class="app">
+      <div id="banner"></div>
       <header>
         <button id="prevDay">&lt;&lt;</button>
         <button id="nextDay">&gt;&gt;</button>
@@ -15,11 +16,29 @@ function render() {
       </main>
     </div>
   `;
+  maybe_render_banner();
   renderTaskForm();
   renderTasks();
   renderReport();
   attachEventListeners();
   renderAuditLog();
+}
+
+function maybe_render_banner() {
+  const div = document.getElementById('banner');
+  if(window.location.host === 'organize-life.github.io') {
+    Object.assign(div.style, {
+      display: 'none',
+    });
+  } else {
+    div.innerText = 'Notice: You are viewing this app via a nonstandard domain, and your data will not be shared with the standard domain.';
+    Object.assign(div.style, {
+      backgroundColor: '#ff7070',
+      margin: '-8px',
+      marginBottom: '8px',
+      padding: '5px',
+    });
+  }
 }
 
 function renderTaskForm() {
