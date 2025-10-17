@@ -1,11 +1,12 @@
 const renderTask = ({task, context, index}) => {
   const li = document.createElement('li');
-  li.textContent = `[${task.tags.join(', ')}] ${task.text}`;
+  const rendered_tags = ((task.tags.length === 0) ? '' : '['+task.tags.join(', ')+']');
+  li.textContent = `* ${rendered_tags}${task.text}`;
 
   if(context === 'retrospective'  ||  context === 'evolvingTasks') {
     const upBtn = document.createElement('button');
     upBtn.textContent = '^';
-    Object.assign(upBtn.style, {userSelect: 'none'});
+    Object.assign(upBtn.style, {marginLeft: '5px', userSelect: 'none'});
     upBtn.onclick = () => moveTaskUp(index, context);
 
     const downBtn = document.createElement('button');
