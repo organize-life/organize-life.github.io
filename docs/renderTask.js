@@ -1,7 +1,7 @@
 const renderTask = ({task, context, index}) => {
   const li = document.createElement('li');
   const rendered_tags = ((task.tags.length === 0) ? '' : '['+task.tags.join(', ')+']');
-  li.textContent = `* ${rendered_tags}${task.text}`;
+  li.innerHTML = `<span style="display:inline-block;width:0;white-space:pre;opacity:0;">* </span>${rendered_tags}${task.text}`;
 
   if(context === 'retrospective'  ||  context === 'evolvingTasks') {
     const upBtn = document.createElement('button');
