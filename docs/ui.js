@@ -14,6 +14,7 @@ function render() {
         <div id="monthlyReport"></div>
         <div id="auditLog"></div>
       </main>
+      <div style="height: 50vh;"></div>
     </div>
   `;
   maybe_render_banner();
