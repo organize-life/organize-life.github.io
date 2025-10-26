@@ -44,7 +44,7 @@ async function acquireMidnightLock(now) {
   console.log('About to wait for lock "midnight_snapshot"; ' + format_time(new Date()));
   await navigator.locks.request('midnight_snapshot', async() => {
     console.log('Acquired lock "midnight_snapshot"; ' + format_time(new Date()));
-    handleMissedMidnights(now);
+    handleMissedMidnights(new Date(now).toLocaleDateString('sv-SE'));
   });
   console.log('Released lock "midnight_snapshot"; ' + format_time(new Date()));
 }

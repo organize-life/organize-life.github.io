@@ -35,7 +35,7 @@ async function main() {
   window.app_state = {current_day: new Date().toLocaleDateString('sv-SE')}; // YYYY-MM-DD in local time
 
   loadFromStorage();
-  acquireMidnightLock(app_state.current_day);
+  acquireMidnightLock(Date.now());
   setupCrossTabSync();
   scheduleNextMidnight();
   await new Promise((resolve) => {window.addEventListener('load', resolve);});
