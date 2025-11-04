@@ -1,13 +1,13 @@
 function attachEventListeners() {
   document.getElementById('prevDay').addEventListener('click', () => {
-    const d = new Date(app_state.current_day);
-    d.setDate(d.getDate() - 1);
+    const d = new Date(app_state.current_day + 'T00:00:00Z');
+    d.setUTCDate(d.getUTCDate() - 1);
     app_state.current_day = d.toISOString().split('T')[0];
     render();
   });
   document.getElementById('nextDay').addEventListener('click', () => {
-    const d = new Date(app_state.current_day);
-    d.setDate(d.getDate() + 1);
+    const d = new Date(app_state.current_day + 'T00:00:00Z');
+    d.setUTCDate(d.getUTCDate() + 1);
     app_state.current_day = d.toISOString().split('T')[0];
     render();
   });
