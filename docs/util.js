@@ -11,10 +11,10 @@ function enumerateDays(start, end) {
   const b = new Date(end);
   const days = [];
   const current = new Date(a);
-  current.setDate(current.getDate() + 1);
+  current.setUTCDate(current.getUTCDate() + 1);
   while(current <= b) {
     days.push(current.toISOString().split('T')[0]);
-    current.setDate(current.getDate() + 1);
+    current.setUTCDate(current.getUTCDate() + 1);
   }
   return days;
 }
